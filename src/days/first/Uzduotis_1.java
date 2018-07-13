@@ -5,9 +5,6 @@ import java.util.Scanner;
 public class Uzduotis_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        /*System.out.println("Iveskite zodi");
-        String word = scanner.nextLine();
-        System.out.println(word);*/
         getCorrectWord(scanner);
     }
 
@@ -28,7 +25,7 @@ public class Uzduotis_1 {
                     + word.length() + " simboliai " + "a raidziu yra " + count);
         } else {
             System.out.println("Ivestas zodis yra - " + word + " - yra nelyginis, jo ilgis yra "
-                    + word.length() + " simboliai "+ "a raidziu yra " + count);
+                    + word.length() + " simboliai " + "a raidziu yra " + count);
         }
     }
 
