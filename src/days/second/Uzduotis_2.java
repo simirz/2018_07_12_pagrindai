@@ -1,5 +1,8 @@
 package days.second;
 
+import utils.NumberUtils;
+import utils.NumberUtils;
+
 import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -7,7 +10,9 @@ import java.util.Scanner;
 public class Uzduotis_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Uzduotis_2 uzduotis_2 = new Uzduotis_2(); //sukurtas objektas
+        Uzduotis_2 uzduotis_2 = new Uzduotis_2(); //sukurtas objektas,
+        // kad butu galima pasiekti kitoje klaseje esanti objekta.
+        // Kvieciama pagal pavadinima ir priskiriama reiksme
 
 
         System.out.println("pasirinkite figura\na-statusis trikampis\nb-staciakampis\nc-kvadratas\nd-apskritimas");
@@ -34,44 +39,32 @@ public class Uzduotis_2 {
     }
 
     private double trikampioPlotas(Scanner scanner) {
+       // NumberUtils numberUtils = new NumberUtils() norin pasiekti nestatinius
         //  iki klaidu gaudymo: System.out.println("Iveskite a statini");
         //  iki klaidu gaudymo: double a = scanner.nextDouble();
-        double a = getCorrectNumber(scanner, "Iveskite a statini");
+        double a = NumberUtils.getCorrectNumber(scanner, "Iveskite a statini");
         // iki klaidu gaudymo: System.out.println("Iveskite b statini");
         //  iki klaidu gaudymo:double b = scanner.nextDouble();
-        double b = getCorrectNumber(scanner, "Iveskite b krastine");
+        double b = NumberUtils.getCorrectNumber(scanner, "Iveskite b krastine");
         return (a * b) / 2;
     }
 
     private double staciakampioPlotas(Scanner scanner) {
-        double a = getCorrectNumber(scanner, "Iveskite a krastine");
-        double b = getCorrectNumber(scanner, "Iveskite b krastine");
+        double a = NumberUtils.getCorrectNumber(scanner, "Iveskite a krastine");
+        double b = NumberUtils.getCorrectNumber(scanner, "Iveskite b krastine");
         return (a * b);
     }
 
     private double kvadratoPlotas(Scanner scanner) {
-        double a = getCorrectNumber(scanner, "Iveskite a krastine");
-        double b = getCorrectNumber(scanner, "Iveskite b krastine");
+        double a = NumberUtils.getCorrectNumber(scanner, "Iveskite a krastine");
+        double b = NumberUtils.getCorrectNumber(scanner, "Iveskite b krastine");
         return Math.pow(a, b);
     }
 
     private double apskritimoPlotas(Scanner scanner) {
-        double a = getCorrectNumber(scanner, "Iveskite spinduli");
+        double a = NumberUtils.getCorrectNumber(scanner, "Iveskite spinduli");
         return Math.PI * Math.pow(a, 2);
     }
-
-    private double getCorrectNumber(Scanner sc, String message) {
-        double result;
-        while (true) {
-            System.out.println(message);
-            try {
-                result = sc.nextDouble();
-                break;
-            } catch (InputMismatchException e) { //e nes exception
-                System.out.println("Nepavyko, kartok dar karta");
-                sc.nextLine();
-            }
-        }
-        return result;
-    }
 }
+
+
